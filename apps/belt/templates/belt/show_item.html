@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>single item</title>
+	<style type="text/css">
+		#wapper{
+			margin: 20px;
+			padding: 20px;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+	<body>
+		<a href="/items">Home</a>
+		<a href="/logout">Logout</a>
+		<h2>{{ single_item.item_name }}</h2>
+		<p>Users who added this product/item under their wish list:</p>
+		{% for user in liked_users %}
+			<li>{{ user.name }}</li>	
+		{% endfor %}
+	</body>
+</html>

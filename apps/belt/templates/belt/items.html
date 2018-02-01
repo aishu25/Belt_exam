@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Items</title>
+	<style type="text/css">
+		#wapper{
+			margin: 20px;
+			padding: 20px;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border: 1px solid black;
+		}
+		#button {
+		    background-color: #4CAF50;
+		    border: none;
+		    color: white;
+		    width: 200px;
+		    padding: 8px ;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 15px;
+		    margin: 3px;
+		    cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	{% for message in messages %}
+			<li>{{ message }}</li>
+	{% endfor %}
+	<h2>Welcome {{ welcome_user.name }} !</h2>
+	<a href="/logout">Logout</a>
+	<h4>Your Wish List:</h4>
+	<table>
+		<tr>
+			<th>Item</th>
+			<th>Added by</th>
+			<th>Date Added</th>
+			<th>Action</th>
+		</tr>
+		{% for item in liked_items %}
+			<tr>
+				<td><a href="/wish_item/{{item.id}}">{{ item.item_name }}</a></td>
+				<td>{{ item.item_name }}</td>
+				<td>{{ item.uploader.name }}</td>
+				<td>{{ item.created_at }}</td>
+				<td><a href="/remove/{{item.id}}">Remove from my wishlist</a>
+					or <a href="/delete/{{item.id}}">Delete</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+	<h4>Other Users Wishlist</h4>
+	<table>
+		<tr>
+			<th>Item</th>
+			<th>Added by</th>
+			<th>Date Added</th>
+			<th>Action</th>
+		</tr>
+		{%for other_item in other_items%}
+			<tr>
+				<td><a href="/wish_item/{{other_item.id}}">{{ other_item.item_name }}</a></td>
+				<td>{{ other_item.uploader.name }}</td>
+				<td>{{ other_item.created_at }}</td>
+				<td><a href="/remove/{{other_item.id}}">Remove from my wishlist</a> or
+					<a href="/add/{{other_item.id}}">Add to my wishlist</a> or
+					<a href="/delete/{{other_item.id}}">Delete</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+	<a id="button" href="/wish_items/create">Add Item</a>
+</body>
+</html>
