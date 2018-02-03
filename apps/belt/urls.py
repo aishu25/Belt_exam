@@ -10,7 +10,6 @@ url(r'^wish_items/create$',views.create),
 url(r'^add_item$',views.add_item),
 url(r'^remove/(?P<id>\d+)$',views.remove),
 url(r'^add/(?P<id>\d+)$',views.add),
-url(r'^delete/(?P<id>\d+)$',views.delete),
 url(r'^logout$',views.logoutpage),
 # url(r'^pokes/(?P<id>\d+)$',views.pokeUser),
 ]

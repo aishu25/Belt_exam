@@ -45,9 +45,7 @@
 				<td>{{ item.item_name }}</td>
 				<td>{{ item.uploader.name }}</td>
 				<td>{{ item.created_at }}</td>
-				<td><a href="/remove/{{item.id}}">Remove from my wishlist</a>
-					or <a href="/delete/{{item.id}}">Delete</a>
-				</td>
+				<td><a href="/remove/{{item.id}}" onClick="alert('Are you sure to remove ?')">Remove from my wishlist</a></td>
 			</tr>
 		{% endfor %}
 	</table>
@@ -64,10 +62,7 @@
 				<td><a href="/wish_item/{{other_item.id}}">{{ other_item.item_name }}</a></td>
 				<td>{{ other_item.uploader.name }}</td>
 				<td>{{ other_item.created_at }}</td>
-				<td><a href="/remove/{{other_item.id}}">Remove from my wishlist</a> or
-					<a href="/add/{{other_item.id}}">Add to my wishlist</a> or
-					<a href="/delete/{{other_item.id}}">Delete</a>
-				</td>
+				<td><a href="/add/{{other_item.id}}" onclick="alert('sure to add ?')">Add to my wishlist</a></td>
 			</tr>
 		{% endfor %}
 	</table>

@@ -116,14 +116,7 @@ def remove(request,id):
 
 	item.liked_users.remove(user)
 
-	return redirect('/items')
-
-def delete(request,id):
-
-	user = User.objects.get(email=request.session['email'])
-	item = Item.objects.get(id=id)
-
-	item.liked_users.delete(user)
+	# messages.info(request, "Are you sure want to remove ?")
 
 	return redirect('/items')
 
